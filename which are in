@@ -1,0 +1,36 @@
+// Given two arrays of strings a1 and a2 return a
+// sorted array r in lexicographical order of the
+// strings of a1 which are substrings of strings of a2.
+
+// Example 1: a1 = ["arp", "live", "strong"]
+//
+// a2 = ["lively", "alive", "harp", "sharp", "armstrong"]
+//
+// returns ["arp", "live", "strong"]
+//
+// Example 2: a1 = ["tarp", "mice", "bull"]
+//
+// a2 = ["lively", "alive", "harp", "sharp", "armstrong"]
+//
+// returns []
+
+let a2 = ["lively", "alive", "harp", "sharp", "armstrong"]
+
+let a1 = ["xyz", "live", "strong"]
+
+function inArray(array1,array2){
+  let r = []
+  for(let i=0;i<array2.length;i++){
+    for(let k=0;k<array1.length;k++){
+      // console.log(array1[k])
+      if(array2[i].includes(array1[k]) && !r.includes(array1[k])){
+        r.push(array1[k])
+      }
+    }
+  }
+  r=r.sort()
+  console.log(r)
+  return r
+}
+
+console.log(inArray(a1,a2))

@@ -1,0 +1,21 @@
+// write a program that determines if a palindrome has been inputted
+
+const isPalindrome = (input) => {
+  let phrase = input.replace(/\s/g, '')
+  for(let i=0;i<=phrase.length/2;i++){
+    let answer = true
+    if(phrase[i]!=phrase[phrase.length-1-i]){
+      console.log(false)
+      return
+    }
+  }
+  console.log(true)
+}
+
+// let phrase = 'poop poop'
+// phrase.replace('p','y')
+// console.log(phrase)
+
+let poop = 'ra cfefc ar'
+
+isPalindrome(poop)

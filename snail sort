@@ -1,0 +1,84 @@
+// snail sort
+
+
+const snail2 = function(array) {
+  let result = []
+  let accum = 0
+  console.log(array)
+  let num = Math.floor(array.length/2)
+  if(array.length % 2) === 0{
+    let finalPush = array[num][num]
+  } else {
+    let finalPush = array[num][num+1]
+  }
+  const targetLength = array.length*array.length
+  do{
+    for(let i=accum;i<array.length-(accum+1);i++){
+      result.push(array[accum][i])
+      if(targetLength <= result.length){result.push(finalPush);return result}
+    }
+    for(let j=accum; j<array.length-(accum+1); j++){
+      result.push(array[j][array.length-(accum+1)])
+      if(targetLength <= result.length){result.push(finalPush);return result}
+    }
+    for(let k=array.length-(accum+1);k>=accum+1;k--){
+      result.push(array[array.length-(accum+1)][k])
+      if(targetLength <= result.length){result.push(finalPush);return result}
+    }
+    for(let m=array.length-(accum+1);m>=(accum+1);m--){
+      result.push(array[m][accum])
+      if(targetLength <= result.length){result.push(finalPush);return result}
+    }
+    accum+=1
+  } while(array.length*array.length > result.length)
+  result.push(finalPush)
+  console.log(result)
+  return result
+}
+
+
+const snail = function(array) {
+  let result = []
+  let accum = 0
+  console.log(array)
+
+  for(let i=0;i<array.length-1;i++){ //1
+    result.push(array[0][i])
+  }
+  result.push('-')
+  for(let i=0; i<array.length-1; i++){  //2
+    result.push(array[i][array.length-1])
+  }
+  result.push('-')
+  for(let i=array.length-1;i>=2;i--){ //3
+    result.push(array[array.length-1][i])
+  }
+  result.push('-')
+  for(let i=array.length-1;i>=1;i--){ //4
+    result.push(array[i][0])
+  }
+  result.push('-')
+  // break
+  for(let i=1;i<array.length-2;i++){ //1
+    result.push(array[1][i])
+  }
+  result.push('-')
+  for(let i=1; i<array.length-2; i++){  //2
+    result.push(array[i][array.length-2])
+  }
+  result.push('-')
+  for(let i=array.length-2;i>=2;i--){ //3
+    result.push(array[array.length-2][i])
+  }
+  result.push('-')
+  for(let i=array.length-2;i>=2;i--){ //4
+    result.push(array[i][1])
+  }
+  result.push('-')
+
+  console.log(result)
+}
+
+
+//snail2([[1, 2, 3, 4, 5, 6], [20, 21, 22, 23, 24, 7], [19, 32, 33, 34, 25, 8], [18, 31, 36, 35, 26, 9], [17, 30, 29, 28, 27, 10], [16, 15, 14, 13, 12, 11]])
+console.log(snail2([[1, 2, 3, 4, 5], [6, 7, 8, 9, 10], [11, 12, 13, 14, 15], [16, 17, 18, 19, 20], [21, 22, 23, 24, 25]]))

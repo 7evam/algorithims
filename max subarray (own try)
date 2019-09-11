@@ -1,0 +1,18 @@
+// find the maximum value of three consecutive elements in an array
+
+let testArray = [100,1,10,23,5,46,34,57,24,58,53,24,46,46,28,35,31,32,35,65,24,42,53,26,43,53,42,50,36,57,46,35,38,26,24,53,53,35,58,14]
+
+const maxOfThree = (array) => {
+  let maxNum = 0
+  let iteration;
+  for(let i=0;i<array.length-2;i++){
+    iteration = array[i] + array[i+1] + array[i+2]
+    // console.log(iteration)
+    if(iteration > maxNum){
+      maxNum = iteration
+    }
+  }
+  return maxNum
+}
+
+console.log(maxOfThree(testArray))

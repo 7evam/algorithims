@@ -1,0 +1,17 @@
+// Maximum subarray sum with Kadane's algorithim
+
+var maxSequence = function(arr){
+  let maxGlobal = arr[0]
+  let maxAtCurrentIndex = arr[0]
+  for(let i=1;i<arr.length;i++){
+    maxAtCurrentIndex = Math.max(arr[i], arr[i]+maxAtCurrentIndex)
+    if(maxAtCurrentIndex > maxGlobal){
+      maxGlobal = maxAtCurrentIndex
+    }
+  }
+  if(maxGlobal>0){
+    return maxGlobal
+  } else {
+    return 0
+  }
+}

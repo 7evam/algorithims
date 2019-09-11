@@ -1,0 +1,86 @@
+// use rand7 to create a function that returns a random number 1-5
+
+const rand5 = () => {
+  return Math.floor(Math.random()*5)+1
+}
+
+const areArraysWith2ArgsEqual = (arr1,arr2) => {
+  if(arr1[0]==arr2[0] && arr1[1]==arr2[1]){
+    return true
+  } else {
+    return false
+  }
+}
+
+const rand7 = () => {
+  let result = [5,5]
+  while(result[0] == 5 && result[1]!=1){
+    result = [rand5(), rand5()]
+  }
+
+  result = Number(""+result[0]+result[1])
+
+
+  if       (result===11||result===12||result===13){
+    return 1
+  } else if(result===14||result===15||result===21){
+    return 2
+  } else if(result===22||result===23||result===24){
+    return 3
+  } else if(result===25||result===31||result===32){
+    return 4
+  } else if(result===33||result===34||result===35){
+    return 5
+  } else if(result===41||result===42||result===43){
+    return 6
+  } else if(result===44||result===45||result===51){
+    return 7
+  } else {
+    console.log('uh oh something not working')
+  }
+}
+
+const checkDistribution = () => {
+  let one = 0
+  let two = 0
+  let three = 0
+  let four = 0
+  let five = 0
+  let six = 0
+  let seven = 0
+  for(let i=1;i<=100;i++){
+    let roll = rand7()
+    switch (roll){
+      case 1:
+      one+=1;
+      break;
+      case 2:
+      two+=1;
+      break;
+      case 3:
+      three+=1;
+      break;
+      case 4:
+      four+=1;
+      break;
+      case 5:
+      five+=1;
+      case 6:
+      six+=1;
+      case 7:
+      seven+=1;
+      break;
+      default:
+      console.log(`uh oh, got a ${roll}`)
+    }
+  }
+  console.log(`one was rolled ${one} times`)
+  console.log(`two was rolled ${two} times`)
+  console.log(`three was rolled ${three} times`)
+  console.log(`four was rolled ${four} times`)
+  console.log(`five was rolled ${five} times`)
+  console.log(`six was rolled ${six} times`)
+  console.log(`seven was rolled ${seven} times`)
+}
+
+console.log(rand7())
